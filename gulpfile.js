@@ -137,5 +137,12 @@ gulp.task('scripts', ['clean:scripts', 'jshint'], function () {
     return stream.pipe(gulp.dest(path.join(paths.dist.js)));
 });
 
+
+gulp.task('watch', function () {
+    gulp.watch(path.join(paths.src.sass, '**/*.scss'), ['styles']);
+    gulp.watch(path.join(paths.src.js, '**/*.js'), ['scripts']);
+});
+
+
 gulp.task('default', ['styles', 'fonts', 'scripts']);
 gulp.task('production', ['set:production', 'default']);
