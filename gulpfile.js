@@ -6,6 +6,7 @@ var sass = require('gulp-ruby-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
+var imagemin = require('gulp-imagemin');
 var rename = require('gulp-rename');
 var size = require('gulp-size');
 var watch = require('gulp-watch');
@@ -29,13 +30,15 @@ var paths = {
         this.src = {
             js: path.join(this.devFolder, 'js'),
             sass: path.join(this.devFolder, 'sass'),
-            bower: path.join(this.devFolder, 'components')
+            bower: path.join(this.devFolder, 'components'),
+            image: path.join(this.devFolder, 'images'),
         };
 
         this.dist = {
             js: path.join(this.distFolder, 'js'),
             css: path.join(this.distFolder, 'css'),
-            font: path.join(this.distFolder, 'fonts')
+            font: path.join(this.distFolder, 'fonts'),
+            image: path.join(this.distFolder, 'images'),
         };
 
         return this;
@@ -52,6 +55,10 @@ gulp.task('clean:styles', function (cb) {
 
 gulp.task('clean:fonts', function (cb) {
     rimraf(paths.dist.font, cb);
+});
+
+gulp.task('clean:images', function (cb) {
+    rimraf(paths.dist.image, cb);
 });
 
 gulp.task('clean:scripts', function (cb) {
@@ -87,6 +94,17 @@ gulp.task('fonts', ['clean:fonts'], function () {
         ])
         .pipe(gulp.dest(paths.dist.font));
 });
+
+
+gulp.task('images', ['clean:images'], function () {
+    return gulp.src([
+            path.join(paths.src.image, '**/*')
+        ])
+        .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+        .pipe(gulp.dest(paths.dist.image))
+        .pipe(size());
+});
+
 
 gulp.task('build:bootstrapScript', function () {
     var stream = gulp.src([
@@ -140,9 +158,10 @@ gulp.task('scripts', ['clean:scripts', 'jshint'], function () {
 
 gulp.task('watch', function () {
     gulp.watch(path.join(paths.src.sass, '**/*.scss'), ['styles']);
+    gulp.watch(path.join(paths.src.image, '**/*'), ['images']);
     gulp.watch(path.join(paths.src.js, '**/*.js'), ['scripts']);
 });
 
 
-gulp.task('default', ['styles', 'fonts', 'scripts']);
+gulp.task('default', ['styles', 'fonts', 'images', 'scripts']);
 gulp.task('production', ['set:production', 'default']);
