@@ -80,8 +80,6 @@ gulp.task('styles', ['clean:styles'], function () {
             loadPath: [paths.src.bower],
             sourcemap: sourcemap
         }))
-        .pipe(autoprefixer("last 3 version", "safari 5", "ie 8", "ie 9"))
-        .pipe(rename({ suffix: '.min' }));
         .on('error', handleError);
 
     if (environment == 'production') {
