@@ -152,6 +152,8 @@ gulp.task('scripts', ['clean:scripts', 'jshint'], function () {
             path.join(paths.src.bower, 'jquery/jquery.min.js'),
             path.join(paths.tmpFolder, 'bootstrap.js'),
             path.join(paths.src.bower, 'headroom.js/dist/headroom.js'),
+            path.join(paths.src.bower, 'imagesloaded/imagesloaded.pkdd.js'),
+            path.join(paths.src.bower, 'wookmark-jquery/jquery.wookmark.js'),
         ])
         .pipe(concat("app.js"));
 
