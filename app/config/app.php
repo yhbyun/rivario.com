@@ -122,6 +122,9 @@ return array(
         'Illuminate\View\ViewServiceProvider',
         'Illuminate\Workbench\WorkbenchServiceProvider',
 
+        'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider',
+        'Former\FormerServiceProvider',
+        'Krucas\Notification\NotificationServiceProvider',
     ),
 
     /*
@@ -189,6 +192,8 @@ return array(
         'Validator'       => 'Illuminate\Support\Facades\Validator',
         'View'            => 'Illuminate\Support\Facades\View',
 
+        'Former'          => 'Former\Facades\Former',
+        'Notification'    => 'Krucas\Notification\Facades\Notification',
     ),
 
 );
