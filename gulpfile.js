@@ -45,6 +45,12 @@ var paths = {
     }
 }.init();
 
+function handleError(err) {
+    console.log(err.toString());
+    notify({message: err.toString()});
+    this.emit('end');
+}
+
 gulp.task('set:production', function() {
     environment = 'production';
 });
@@ -76,6 +82,7 @@ gulp.task('styles', ['clean:styles'], function () {
         }))
         .pipe(autoprefixer("last 3 version", "safari 5", "ie 8", "ie 9"))
         .pipe(rename({ suffix: '.min' }));
+        .on('error', handleError);
 
     if (environment == 'production') {
         stream.pipe(minifycss());
