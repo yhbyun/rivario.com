@@ -21,6 +21,7 @@ var rimraf = require('rimraf');
 
 var environment = 'development';
 var paths = {
+    tmpFolder: './.tmp/',
     devFolder: './app/assets/',
     distFolder: './public/assets/',
 
@@ -67,9 +68,13 @@ gulp.task('styles', ['clean:styles'], function () {
             sourcemap: sourcemap
         }))
         .pipe(autoprefixer("last 3 version", "safari 5", "ie 8", "ie 9"))
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(minifycss())
-        .pipe(gulp.dest(paths.dist.css))
+        .pipe(rename({ suffix: '.min' }));
+
+    if (environment == 'production') {
+        stream.pipe(minifycss());
+    }
+
+    return stream.pipe(gulp.dest(paths.dist.css))
         .pipe(size())
         .pipe(notify({message: 'styles task completed'}));
 });
@@ -83,13 +88,54 @@ gulp.task('fonts', ['clean:fonts'], function () {
         .pipe(gulp.dest(paths.dist.font));
 });
 
+gulp.task('build:bootstrapScript', function () {
+    var stream = gulp.src([
+        'affix.js',
+        'alert.js',
+        'button.js',
+        'carousel.js',
+        'collapse.js',
+        'dropdown.js',
+        'tab.js',
+        'transition.js',
+        'scrollspy.js',
+        'modal.js',
+        'tooltip.js',
+        'popover.js'
+    ], {cwd: path.join(paths.src.bower, 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap')})
+        .pipe(concat('bootstrap.js'));
 
-gulp.task('copy:scripts', ['clean:scripts'], function () {
-    return gulp.src([
-            path.join(paths.src.bower, 'jquery/jquery.min.js')
-        ])
-        .pipe(gulp.dest(path.join(paths.dist.js, 'lib')));
+    if (environment === 'production') {
+        stream.pipe(uglify());
+    }
+
+    return stream.pipe(gulp.dest(paths.tmpFolder))
+        .pipe(size());
 });
 
-gulp.task('default', ['styles', 'fonts', 'copy:scripts']);
+gulp.task('jshint', ['build:bootstrapScript'], function () {
+    return gulp.src([
+            'gulpfile.js',
+            path.join(paths.src.js, '**/*.js')
+        ])
+        .pipe(jshint())
+        .pipe(jshint.reporter(stylish, { verbose: true }));
+});
+
+gulp.task('scripts', ['clean:scripts', 'jshint'], function () {
+    var stream = gulp.src([
+            path.join(paths.src.bower, 'jquery/jquery.min.js'),
+            path.join(paths.tmpFolder, 'bootstrap.js'),
+            path.join(paths.src.bower, 'headroom.js/dist/headroom.js'),
+        ])
+        .pipe(concat("app.js"));
+
+    if (environment == 'production') {
+        stream.pipe(uglify());
+    }
+
+    return stream.pipe(gulp.dest(path.join(paths.dist.js)));
+});
+
+gulp.task('default', ['styles', 'fonts', 'scripts']);
 gulp.task('production', ['set:production', 'default']);
