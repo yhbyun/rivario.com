@@ -159,7 +159,8 @@ gulp.task('scripts', ['clean:scripts', 'jshint'], function () {
         stream.pipe(uglify());
     }
 
-    return stream.pipe(gulp.dest(path.join(paths.dist.js)));
+    return stream.pipe(gulp.dest(path.join(paths.dist.js)))
+        .pipe(notify({message: 'scripts task completed'}));
 });
 
 
