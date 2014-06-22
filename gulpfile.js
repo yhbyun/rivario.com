@@ -54,7 +54,6 @@ gulp.task('clean:fonts', function (cb) {
 });
 
 gulp.task('clean:scripts', function (cb) {
-    rimraf.sync(paths.tmpFolder);
     rimraf(paths.dist.js, cb);
 });
 
@@ -84,5 +83,13 @@ gulp.task('fonts', ['clean:fonts'], function () {
         .pipe(gulp.dest(paths.dist.font));
 });
 
-gulp.task('default', ['styles', 'fonts']);
+
+gulp.task('copy:scripts', ['clean:scripts'], function () {
+    return gulp.src([
+            path.join(paths.src.bower, 'jquery/jquery.min.js')
+        ])
+        .pipe(gulp.dest(path.join(paths.dist.js, 'lib')));
+});
+
+gulp.task('default', ['styles', 'fonts', 'copy:scripts']);
 gulp.task('production', ['set:production', 'default']);
