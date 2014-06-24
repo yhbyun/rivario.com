@@ -26,6 +26,15 @@ body {
   }
 }
 
+article {
+  margin-bottom: 60px;
+  padding-bottom: -60px;
+}
+
+.disqus {
+  margin-top:20px;
+}
+
 #footer {
   margin-top:40px;
 }
