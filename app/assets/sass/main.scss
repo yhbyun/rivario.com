@@ -3,9 +3,16 @@ $icon-font-path: "/assets/fonts/";
 @import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 @import 'fontawesome/scss/font-awesome';
 
-@import 'partials/headrooms';
+@import 'helpers/mixins';
+
+@import 'vendors/headrooms';
+
+@import 'components/panels';
 
 @import 'partials/layout';
-@import 'partials/top';
+@import 'partials/header';
 
-/*# sourceMappingURL=main.css.min.map */
+@import 'pages/home';
+
+@import "vendors/headrooms";
+

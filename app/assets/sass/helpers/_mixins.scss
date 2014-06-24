@@ -1,0 +1,9 @@
+// bootstrap box-sizing reset을 원복
+@mixin reset-box-sizing {
+  &,
+  *,
+  *:before,
+  *:after {
+    box-sizing:content-box;
+  }
+}
