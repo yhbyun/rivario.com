@@ -1,24 +1,3 @@
-@section('scripts')
-    <script>
-    (function ($) {
-        $('.thumb').load(function() {
-            $(this).closest('.site').velocity("transition.flipXIn", { stagger: 70 });
-        });
-
-        var siteHeader = $('.site-header');
-        siteHeader.velocity("fadeIn", { duration: 500 });
-
-        setTimeout(function () {
-            $('.site').addClass('ih-item square effect6 from_top_and_bottom');
-            $('.site').show();
-            $('.site .info').show();
-        }, 1200);
-
-    })(jQuery);
-
-    </script>
-@stop
-
 @section('content')
 
 <div class="container">
@@ -49,6 +28,24 @@
                     <p>Laravel tips and tricks</p>
                 </div>
             </div></a>
+        </div>
+    </div>
+
+
+    <div class="row disqus">
+        <div class="col-xs-12">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = '{{ Config::get("config.disqus_shortname") }}';
+
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
         </div>
     </div>
 </div>

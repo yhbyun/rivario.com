@@ -36,30 +36,5 @@
 
     {{ HTML::script(asset('assets/js/app.js?14062201')) }}
     @yield('scripts')
-    <script>
-        (function () {
-            var myElement = document.querySelector("#gnb");
-            // construct an instance of Headroom, passing the element
-            var headroom  = new Headroom(myElement,
-                {
-                    tolerance: 5,
-                    offset : 205,
-                    classes: {
-                        initial: "animated",
-                        pinned: "slideDown",
-                        unpinned: "slideUp"
-                    }
-                }
-            );
-            // initialise
-            headroom.init();
-        })();
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-Token': $('meta[name="_token"]').attr('content')
-            }
-        });
-    </script>
 </body>
 <!--SWTAGOK--></html>

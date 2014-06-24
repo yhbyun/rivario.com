@@ -162,6 +162,7 @@ gulp.task('scripts', ['clean:scripts', 'jshint'], function () {
             path.join(paths.src.bower, 'wookmark-jquery/jquery.wookmark.js'),
             path.join(paths.src.bower, 'velocity/jquery.velocity.js'),
             path.join(paths.src.bower, 'velocity/velocity.ui.js'),
+            path.join(paths.src.js, 'main.js'),
         ])
         .pipe(concat("app.js"));
 
