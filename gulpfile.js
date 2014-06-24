@@ -73,17 +73,25 @@ gulp.task('clean:scripts', function (cb) {
 
 gulp.task('styles', ['clean:styles'], function () {
     var sourcemap = environment === 'production' ? false : true;
-
-    var stream = gulp.src(path.join(paths.src.sass, '*.scss'))
-        .pipe(sass({
-            style: 'expanded',
-            loadPath: [paths.src.bower],
-            sourcemap: sourcemap
-        }))
-        .on('error', handleError);
+    var stream;
 
     if (environment == 'production') {
-        stream.pipe(minifycss());
+        stream = gulp.src(path.join(paths.src.sass, '*.scss'))
+            .pipe(sass({
+                style: 'expanded',
+                loadPath: [paths.src.bower],
+                sourcemap: sourcemap
+            }))
+            .on('error', handleError)
+            .pipe(minifycss());
+    } else {
+        stream = gulp.src(path.join(paths.src.sass, '*.scss'))
+            .pipe(sass({
+                style: 'expanded',
+                loadPath: [paths.src.bower],
+                sourcemap: sourcemap
+            }))
+            .on('error', handleError);
     }
 
     return stream.pipe(gulp.dest(paths.dist.css))
