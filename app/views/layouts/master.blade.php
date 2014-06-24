@@ -13,7 +13,7 @@
     @if (isset($canonical_url))
     <link rel="canonical" href="{{ $canonical_url }}">
     @endif
-    {{ HTML::style(asset('assets/css/main.min.css?14062201')) }}
+    {{ HTML::style(asset('assets/css/main.css?14062201')) }}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -38,7 +38,7 @@
     @yield('scripts')
     <script>
         (function () {
-            var myElement = document.querySelector("header");
+            var myElement = document.querySelector("#gnb");
             // construct an instance of Headroom, passing the element
             var headroom  = new Headroom(myElement,
                 {

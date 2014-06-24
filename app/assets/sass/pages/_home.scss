@@ -10,3 +10,22 @@ body {
   color:#222;
 }
 
+.site-header {
+  h2 {
+    margin:40px 0;
+  }
+}
+
+.site {
+  display: none;
+  .info {
+    display: none;
+    p {
+      font-size:20px!important;
+    }
+  }
+}
+
+#footer {
+  margin-top:40px;
+}

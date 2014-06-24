@@ -1,4 +1,4 @@
-<header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div id="gnb" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -12,9 +12,8 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="http://about.me/yhbyun"><i class="fa fa-question-circle"></i> About</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
-</header>
+</div>
