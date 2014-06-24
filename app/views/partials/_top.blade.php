@@ -12,6 +12,8 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
+                <li><a href="http://ghost.rivario.com"><i class="fa fa-leaf"></i> Ghost Blog</a></li>
+                <li><a href="http://river.ecplaza.net"><i class="fa fa-leaf"></i> Blog</a></li>
                 <li><a href="http://about.me/yhbyun"><i class="fa fa-question-circle"></i> About</a></li>
             </ul>
         </div><!--/.nav-collapse -->
