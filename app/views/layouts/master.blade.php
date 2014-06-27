@@ -4,6 +4,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="rivario.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rivario.com" />
+    <meta property="og:image" content="https://avatars2.githubusercontent.com/u/946080?s=460" />
+    <meta property="og:site_name" content="rivario.com" />
+    <meta name="author" content="YongHun Byun, @river">
     <meta name="_token" content="{{ csrf_token() }}">
     @section('page_title')
     <title>rivario.com</title>
@@ -12,6 +18,7 @@
     @yield('page_keywords')
     @if (isset($canonical_url))
     <link rel="canonical" href="{{ $canonical_url }}">
+    <link rel="author" href="https://plus.google.com/+YongHunByun"/>
     @endif
     {{ HTML::style(asset('assets/css/main.css?14062201')) }}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
