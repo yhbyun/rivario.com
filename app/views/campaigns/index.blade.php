@@ -1,30 +1,23 @@
+<?php
+$page_title = "CSS Inliner Tool - rivario.com";
+?>
+
+@include('partials._page-title')
+
+@section('styles')
+<style>
+    form {margin-bottom:20px}
+    input[type=checkbox] {
+        margin-left:0px!important;
+        margin-right:10px!important;
+    }
+</style>
+@stop
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <h1>CSS Inliner Tool</h1>
 
-<?php $url = URL::action('CampaignsController@postInline'); ?>
-{{ Former::framework('TwitterBootstrap3Validator') }}
-{{
-Former::open_vertical($url)
-->method('POST')
-}}
+    @include('campaigns._form')
 
-{{
-Former::textarea('html')
-->rows(20)
-->placeholder('Place your HTML here to convert');
-}}
-
-{{
-Former::actions()
-->lg_primary_submit('Convert')
-}}
-
-{{ Former::close() }}
-
-    </div>
 </div>
-
 @stop

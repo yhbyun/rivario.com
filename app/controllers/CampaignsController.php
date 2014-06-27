@@ -14,7 +14,7 @@ class CampaignsController extends BaseController {
         $converter = new CssToInlineStyles();
         $converter->setEncoding('utf-8');
         $converter->setUseInlineStylesBlock();
-        $converter->setStripOriginalStyleTags(true);
+        $converter->setStripOriginalStyleTags(Input::get('stripOriginCSS'));
         $converter->setCleanup();
 
         $converter->setHTML(Input::get('html'));

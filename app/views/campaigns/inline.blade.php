@@ -1,57 +1,54 @@
+<?php
+$page_title = "CSS Inliner Tool - rivario.com";
+?>
+
+@include('partials._page-title')
+
 @section('styles')
 <style>
-    #frm-html {margin-bottom:20px}
+form {margin-bottom:20px}
+input[type=checkbox] {
+    margin-left:0px!important;
+    margin-right:10px!important;
+}
 </style>
 @stop
 
 
 @section('content')
 
-<div class="container">
-    <div class="row">
-        <h1>CSS Inliner Tool</h1>
 <?php
-$url = URL::action('CampaignsController@postInline');
-Input::replace(array('html' => ''));
+Input::merge(array('html' => ''));
 ?>
-{{ Former::framework('TwitterBootstrap3Validator') }}
-{{
-Former::open_vertical($url)
-->id('frm-html')
-->method('POST')
-}}
 
-{{
-Former::textarea('html')
-->rows(20)
-->placeholder('Place your HTML here to convert');
-}}
+<div class="container">
 
-{{
-Former::actions()
-->lg_primary_submit('Convert')
-}}
+    @include('campaigns._form')
 
-{{ Former::close() }}
+    <div class="row">
 
 <?php
-Former::populateField('inlinehtml', $inlineHtml);
+Former::populateField('inline', $inlineHtml);
 ?>
 
 <div class="alert alert-success">
-Below is your code with all of your CSS inlined for proper rendering in email clients.</div>
+Below is your code with all of your CSS inlined for proper rendering in email clients.
+</div>
 
 {{
-Former::open_vertical($url)
-->method('POST')
+    Former::open_vertical()
+        ->method('POST')
 }}
 
 {{
-Former::textarea('inlinehtml')
-->rows(20)
+    Former::textarea('inline')
+        ->label('')
+        ->rows(20)
 }}
 
-{{ Former::close() }}
+{{
+    Former::close()
+}}
 
 <iframe srcdoc="{{{ $inlineHtml }}}" width="100%" height="500px">
 </iframe>
