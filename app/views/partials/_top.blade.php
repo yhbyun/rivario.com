@@ -19,6 +19,15 @@
                     <ul class="dropdown-menu">
                         <li><a href="https://laravelrocks.com">laravelrocks.com</a></li>
                         <li><a href="{{ str_replace('/index', '', action('EloquentController@getIndex')) }}">Eloquent Test</a></li>
+                        {{--
+                        <li><a href="{{ str_replace('/index', '', action('FormerController@getIndex')) }}">Former</a></li>
+                        --}}
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-magic"></i> Tools <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ str_replace('/index', '', action('CampaignsController@getIndex')) }}">CSS Inliner Tool</a></li>
                     </ul>
                 </li>
                 <li><a href="http://about.me/yhbyun"><i class="fa fa-question-circle"></i> About</a></li>
