@@ -153,7 +153,27 @@ gulp.task('jshint', ['build:bootstrapScript'], function () {
         .pipe(jshint.reporter(stylish, { verbose: true }));
 });
 
-gulp.task('scripts', ['clean:scripts', 'jshint'], function () {
+gulp.task('build:ghostScript', ['clean:scripts', 'jshint'], function () {
+    var stream = gulp.src([
+            path.join(paths.src.bower, 'lodash/dist/lodash.underscore.js'),
+            path.join(paths.src.bower, 'showdown/src/showdown.js'),
+            path.join(paths.src.js, 'ghost/lib/showdown/extensions/ghostgfm.js'),
+            path.join(paths.src.js, 'ghost/lib/init.js'),
+            path.join(paths.src.js, 'ghost/lib/editor/index.js'),
+            path.join(paths.src.js, 'ghost/lib/editor/htmlPreview.js'),
+        ])
+        .pipe(concat("ghost.js"));
+
+    if (environment == 'production') {
+        stream.pipe(uglify());
+    }
+
+    return stream.pipe(gulp.dest(path.join(paths.dist.js)))
+        .pipe(notify({message: 'ghostScripts task completed'}));
+});
+
+
+gulp.task('scripts', ['build:ghostScript'], function () {
     var stream = gulp.src([
             path.join(paths.src.bower, 'jquery/jquery.min.js'),
             path.join(paths.tmpFolder, 'bootstrap.js'),
@@ -178,7 +198,6 @@ gulp.task('scripts', ['clean:scripts', 'jshint'], function () {
     return stream.pipe(gulp.dest(path.join(paths.dist.js)))
         .pipe(notify({message: 'scripts task completed'}));
 });
-
 
 gulp.task('watch', function () {
     gulp.watch(path.join(paths.src.sass, '**/*.scss'), ['styles']);
