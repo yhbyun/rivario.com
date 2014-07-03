@@ -23,9 +23,10 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-magic"></i> Tools <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-magic"></i> Tools/Libs <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ str_replace('/index', '', action('CampaignsController@getIndex')) }}">CSS Inliner Tool</a></li>
+                        <li><a href="{{ route('endpage.index') }}">jQuery End Page Plugin</a></li>
                     </ul>
                 </li>
             </ul>

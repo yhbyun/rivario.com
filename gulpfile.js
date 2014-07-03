@@ -187,6 +187,7 @@ gulp.task('scripts', ['build:ghostScript'], function () {
             path.join(paths.src.bower, 'ladda-bootstrap/dist/ladda.js'),
             path.join(paths.src.bower, 'highlight/build/highlight.pack.js'),
             path.join(paths.src.bower, 'bootstrapValidator/dist/js/bootstrapValidator.js'),
+            path.join(paths.src.bower, 'jquery-endpage/src/endpage.js'),
             path.join(paths.src.js, 'main.js'),
         ])
         .pipe(concat("app.js"));
