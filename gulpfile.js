@@ -38,6 +38,7 @@ var paths = {
             js: path.join(this.distFolder, 'js'),
             css: path.join(this.distFolder, 'css'),
             font: path.join(this.distFolder, 'fonts'),
+            bower: path.join(this.distFolder, 'components'),
             image: path.join(this.distFolder, 'images'),
         };
 
@@ -69,6 +70,10 @@ gulp.task('clean:images', function (cb) {
 
 gulp.task('clean:scripts', function (cb) {
     rimraf(paths.dist.js, cb);
+});
+
+gulp.task('clean:bower', function (cb) {
+    rimraf(paths.dist.bower, cb);
 });
 
 gulp.task('styles', ['clean:styles'], function () {
@@ -118,6 +123,16 @@ gulp.task('images', ['clean:images'], function () {
         .pipe(size());
 });
 
+
+gulp.task('copy:reveal.js', ['clean:bower'], function () {
+    return gulp.src([
+            path.join(paths.src.bower, 'reveal.js/css/**/*.css'),
+            path.join(paths.src.bower, 'reveal.js/js/*.js'),
+            path.join(paths.src.bower, 'reveal.js/lib/**/*.*'),
+            path.join(paths.src.bower, 'reveal.js/plugin/**/*.*'),
+        ], { 'base': paths.src.bower })
+        .pipe(gulp.dest(paths.dist.bower));
+});
 
 gulp.task('build:bootstrapScript', function () {
     var stream = gulp.src([
@@ -172,7 +187,6 @@ gulp.task('build:ghostScript', ['clean:scripts', 'jshint'], function () {
         .pipe(notify({message: 'ghostScripts task completed'}));
 });
 
-
 gulp.task('scripts', ['build:ghostScript'], function () {
     var stream = gulp.src([
             path.join(paths.src.bower, 'jquery/jquery.min.js'),
@@ -207,5 +221,5 @@ gulp.task('watch', function () {
 });
 
 
-gulp.task('default', ['styles', 'fonts', 'images', 'scripts']);
+gulp.task('default', ['styles', 'fonts', 'images', 'scripts', 'copy:revel.js']);
 gulp.task('production', ['set:production', 'default']);
