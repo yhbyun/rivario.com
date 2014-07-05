@@ -22,6 +22,7 @@
                         --}}
                     </ul>
                 </li>
+                <li><a href="/bookmark"><i class="fa fa-bookmark"></i> Bookmark</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-magic"></i> Tools/Libs <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -30,7 +31,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cubes"></i> Slide <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-sliders"></i> Slide <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="http://www.slideshare.net/yhbyun/ss-24634455">Bookmark 서비스 개발기</a></li>
                         <li><a href="http://www.slideshare.net/yhbyun/ss-31563706">대량메일 발송하기</a></li>
@@ -40,8 +41,13 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://ghost.rivario.com"><i class="fa fa-leaf"></i> Ghost Blog</a></li>
-                <li><a href="http://river.ecplaza.net"><i class="fa fa-leaf"></i> Blog</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cubes"></i> Blog <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="http://ghost.rivario.com"><i class="fa fa-terminal"></i> Red Ghost</a></li>
+                        <li><a href="http://river.ecplaza.net"><i class="fa fa-leaf"></i> Personal Blog</a></li>
+                    </ul>
+                </li>
                 <li><a href="http://about.me/yhbyun"><i class="fa fa-question-circle"></i> About</a></li>
             </ul>
         </div><!--/.nav-collapse -->
