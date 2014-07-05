@@ -29,6 +29,15 @@
                         <li><a href="{{ route('endpage.index') }}">jQuery End Page Plugin</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cubes"></i> Slide <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="http://www.slideshare.net/yhbyun/ss-24634455">Bookmark 서비스 개발기</a></li>
+                        <li><a href="http://www.slideshare.net/yhbyun/ss-31563706">대량메일 발송하기</a></li>
+                        <li><a href="http://www.slideshare.net/yhbyun/ss-31468926">siri 흉내내기</a></li>
+                        <li><a href="{{ route('slide.gulp') }}">Gulp <span class="label label-warning">New</span></a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="http://ghost.rivario.com"><i class="fa fa-leaf"></i> Ghost Blog</a></li>
