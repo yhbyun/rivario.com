@@ -31,6 +31,11 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>These days, I'm building sites with <a href="http://laravel.com">Laravel</a> php web framework. Wonderful framework. Thanks Taylor Otwell.</h2>
+        </div>
+    </div>
 
     <div class="row disqus">
         <div class="col-xs-12">
