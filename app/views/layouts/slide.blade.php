@@ -78,6 +78,7 @@
             { src: '{{ asset('assets') }}/components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
             { src: '{{ asset('assets') }}/components/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
             { src: '{{ asset('assets') }}/components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: '{{ asset('assets') }}/components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
             { src: '{{ asset('assets') }}/components/reveal.js/plugin/spotlight/spotlight.js', async: true, callback: function() { return !!document.body.classList; } },
             { src: '{{ asset('assets') }}/components/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
             { src: '{{ asset('assets') }}/components/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
