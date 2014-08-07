@@ -39,7 +39,8 @@
                         <li><a href="http://www.slideshare.net/yhbyun/ss-24634455">Bookmark 서비스 개발기</a></li>
                         <li><a href="http://www.slideshare.net/yhbyun/ss-31563706">대량메일 발송하기</a></li>
                         <li><a href="http://www.slideshare.net/yhbyun/ss-31468926">siri 흉내내기</a></li>
-                        <li><a href="{{ route('slide.gulp') }}">Gulp <span class="label label-warning">New</span></a></li>
+                        <li><a href="{{ route('slide.gulp') }}">Gulp</a></li>
+                        <li><a href="{{ route('slide.atom-shell') }}">Atom-Shell / Alarm Clock <span class="label label-warning">New</span></a></li>
                     </ul>
                 </li>
             </ul>
