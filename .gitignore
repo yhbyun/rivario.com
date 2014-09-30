@@ -5,6 +5,7 @@
 /app/database/maxmind
 /app/storage/clockwork
 /app/storage/debugbar
+/app/templates
 /public/js
 /public/css
 /public/packages
