@@ -1,9 +1,10 @@
 <?php
 
-class HomeController extends BaseController {
+class HomeController extends BaseController
+{
 
     public function getIndex()
     {
-       $this->view('home.index');
+        $this->view('home.index');
     }
 }
