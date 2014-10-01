@@ -202,6 +202,8 @@ gulp.task('scripts', ['build:ghostScript'], function () {
             path.join(paths.src.bower, 'highlight/build/highlight.pack.js'),
             path.join(paths.src.bower, 'bootstrapValidator/dist/js/bootstrapValidator.js'),
             path.join(paths.src.bower, 'jquery-endpage/src/endpage.js'),
+            path.join(paths.src.bower, 'dropzone/downloads/dropzone.min.js'),
+            path.join(paths.src.bower, 'angular/angular.min.js'),
             path.join(paths.src.js, 'main.js'),
         ])
         .pipe(concat("app.js"));
@@ -221,5 +223,5 @@ gulp.task('watch', function () {
 });
 
 
-gulp.task('default', ['styles', 'fonts', 'images', 'scripts', 'copy:revel.js']);
+gulp.task('default', ['styles', 'fonts', 'images', 'scripts', 'copy:reveal.js']);
 gulp.task('production', ['set:production', 'default']);
