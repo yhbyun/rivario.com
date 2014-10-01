@@ -15,7 +15,8 @@
         "anahkiasen/former": "dev-bootstrapvalidator",
         "edvinaskrucas/notification": "2.*",
         "tijsverkoyen/css-to-inline-styles": "1.3.*@dev",
-        "htmlawed/htmlawed": "dev-master"
+        "htmlawed/htmlawed": "dev-master",
+        "php-ffmpeg/php-ffmpeg": "~0.5"
     },
     "require-dev" : {
         "barryvdh/laravel-debugbar": "1.*",
