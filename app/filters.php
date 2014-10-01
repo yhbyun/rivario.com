@@ -75,7 +75,12 @@ Route::filter('guest', function () {
 */
 
 Route::filter('csrf', function () {
-    if (Session::token() != Input::get('_token')) {
+    if (Request::ajax()) {
+        $token = Request::header('X-CSRF-Token') ?: Input::get('_token');
+    } else {
+        $token = Input::get('_token');
+    }
+    if (Session::token() != $token) {
         throw new Illuminate\Session\TokenMismatchException;
     }
 });
