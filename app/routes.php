@@ -12,6 +12,7 @@ Route::controller('eloquent', 'EloquentController');
 Route::controller('campaign', 'CampaignsController');
 Route::controller('former', 'FormerController');
 Route::resource('videos', 'VideosController');
+Route::resource('api/persons', 'API\PersonsController');
 
 Route::get('endpage', array('as' => 'endpage.index', function () use ($layout) {
     return $layout->nest('content', 'endpage.index');
